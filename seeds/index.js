@@ -6,6 +6,7 @@ const User = require('../models/user');
 const cities = require('./cities');
 const {descriptors, places} = require('./seedhelper');
 
+
 mongoose.connect('mongodb://localhost:27017/camp-fire',{
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -31,6 +32,13 @@ const seedDB = async()=>{
             location: `${cities[i].city} , ${cities[i].state}`,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam dolores vero perferendis laudantium, consequuntur voluptatibus nulla architecto, sit soluta esse iure sed labore ipsam a cum nihil atque molestiae deserunt!',
             price,
+            geometry: {
+                type: "Point",
+                coordinates: [
+                     cities[i].longitude,
+                     cities[i].latitude
+                ]
+            },
             images: [
                 {
                     url: 'https://res.cloudinary.com/chessking/image/upload/v1619098778/CampFire/camp2_y174t5.jpg',

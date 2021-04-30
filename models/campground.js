@@ -13,10 +13,23 @@ ImageSchema.virtual('thumbnail').get(function () {
     return this.url.replace('/upload', '/upload/w_200');
 });
 
+const opts = { toJSON: { virtuals: true } };
+
 const campSchema = new Schema({
     title: {
         type: String,
         required: true
+    },
+    geometry: {
+        type: {
+            type: String,
+            enum: ['Point'],
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
     },
     price: {
         type: Number,
@@ -33,6 +46,12 @@ const campSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Review'
     }]
+},opts);
+
+campSchema.virtual('properties.popUpMarkup').get(function () {
+    return `
+    <strong><a href="/campgrounds/${this._id}">${this.title}</a><strong>
+    <p>${this.description.substring(0, 20)}...</p>`
 });
 
 campSchema.post('findOneAndDelete', async function (doc) {
