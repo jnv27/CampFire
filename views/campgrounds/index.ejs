@@ -5,14 +5,20 @@
 
 <div class="container mt-5">
     
-    <div>
-        <!-- <h1>All Campgrounds</h1> -->
-        <a class="mb-3 btn btn-md btn-primary" href="/campgrounds/new">Add Campground+</a>
+    <div class="row" style="color: white;">
+        <div class="col-6">
+            <h2>All Campgrounds</h1>
+            <hr>
+        </div>
+        <!-- <div class="col-6 ml-auto">
+            <a id = "addbutton" class="mb-3 btn btn-md btn-primary" href="/campgrounds/new">Add Campground+</a>
+        </div> -->
+        
     </div>
 
     
     <% for (let camp of camps){%>
-        <div class="card mb-3" >
+        <div class="card shadow mb-3" style="border: transparent;" >
             <div class="row">
                 <div class="col-md-4">
                     <img class="img-fluid" alt="" src="<%=camp.images[0].url%>">
