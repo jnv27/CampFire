@@ -23,7 +23,7 @@ const userRoutes = require('./routes/users');
 
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/camp-fire';
 
-mongoose.connect('mongodb+srv://Aniket:UMMmijEMLtcXmxr6@campfire.9wwgx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
