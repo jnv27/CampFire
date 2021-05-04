@@ -25,7 +25,7 @@ const dbUrl = process.env.DB_URL;
 
 // 'mongodb://localhost:27017/camp-fire'
 
-mongoose.connect(dbUrl, {
+mongoose.connect('mongodb+srv://Aniket:UMMmijEMLtcXmxr6@campfire.9wwgx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
