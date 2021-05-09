@@ -50,20 +50,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const secret = process.env.SECRET || 'thisshouldbeabettersecret!';
 
- const store = MongoDBStore.create({
-    mongoUrl: dbUrl,
-    touchAfter: 24 * 60 * 60,
-    crypto: {
-        secret
-    }
-});
+//  const store = MongoDBStore.create({
+//     mongoUrl: dbUrl,
+//     touchAfter: 24 * 60 * 60,
+//     crypto: {
+//         secret
+//     }
+// });
 
-store.on("error", function (e) {
-    console.log("SESSION STORE ERROR", e)
-})
+// store.on("error", function (e) {
+//     console.log("SESSION STORE ERROR", e)
+// })
 
 const sessionConfig = {
-    store,
+    // store,
     name: 'session',
     secret,
     resave: false,
